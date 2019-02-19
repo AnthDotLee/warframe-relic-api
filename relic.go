@@ -1,4 +1,4 @@
-package models
+package main
 
 type Relic struct {
 	Era     string       `json:"era"`
