@@ -13,7 +13,7 @@ func main() {
 	{
 		relicsApi.GET("/", func(c *gin.Context) {
 			c.Header("Content-Type", "application/json")
-			c.JSON(http.StatusOK, Relics)
+			c.JSON(http.StatusOK, getRelics())
 		})
 	}
 }
