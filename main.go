@@ -16,4 +16,6 @@ func main() {
 			c.JSON(http.StatusOK, getRelics())
 		})
 	}
+
+	router.Run(":3000")
 }
