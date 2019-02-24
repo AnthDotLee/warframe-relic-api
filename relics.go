@@ -44,9 +44,3 @@ var Relics = []Relic{
 func getRelics() []Relic {
 	return Relics
 }
-
-func findRelic(era string, name string) Relic {
-	for i := 0; i < len(Relics); i++ {
-
-	}
-}
