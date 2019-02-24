@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"strings"
 )
 
 func main() {
@@ -30,11 +31,11 @@ func main() {
 }
 
 func relicSearchHandler(c *gin.Context) {
-	searchEra := c.Param("era")
-	searchName := c.Param("name")
+	searchEra := strings.ToLower(c.Param("era"))
+	searchName := strings.ToLower(c.Param("name"))
 
 	for i := 0; i < len(Relics); i++ {
-		if Relics[i].Era == searchEra && Relics[i].Name == searchName {
+		if strings.ToLower(Relics[i].Era) == searchEra && strings.ToLower(Relics[i].Name) == searchName {
 			c.JSON(http.StatusOK, Relics[i])
 			return
 		}
