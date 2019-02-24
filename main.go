@@ -30,5 +30,14 @@ func main() {
 }
 
 func relicSearchHandler(c *gin.Context) {
+	searchEra := c.Param("era")
+	searchName := c.Param("name")
 
+	for i := 0; i < len(Relics); i++ {
+		if Relics[i].Era == searchEra && Relics[i].Name == searchName {
+			c.JSON(http.StatusOK, Relics[i])
+			return
+		}
+	}
+	c.AbortWithStatus(http.StatusNotFound)
 }
